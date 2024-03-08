@@ -17,15 +17,15 @@
     <header>    
       <div class="header">
         <a href="index.html" class="text-decoration-none">
-          <h1>Proyecto de M2</h1>
+            <h1>Proyecto de M2</h1>
         </a>
         <nav class="nav">
           <ul class="indexList">
-              <li class="li"><a href="index.html">Home</a></li>
-              <li class="li"><a href="#About">About</a></li>
-              <li class="li"><a href="Historia-del-cine.html">Historia del cine</a></li>
-              <li class="li"><a href="#Blog">Blog</a></li>
-              <li class="li"><a href="Contacto.html">Contacto</a></li>
+            <li class="li"><a href="index.html">Home</a></li>
+            <li class="li"><a href="#About">About</a></li>
+            <li class="li"><a href="Historia-del-cine.html">Historia del cine</a></li>
+            <li class="li"><a href="#Blog">Blog</a></li>
+            <li class="li"><a href="Contacto.html">Contacto</a></li>
           </ul>
         </nav>
       </div>
@@ -33,42 +33,39 @@
     </header>
 
     <main>
-      <section class="carousel">
-        <div class="carousel-container">
-          <div class="carousel-slide">
-            <img src="https://i0.wp.com/img.screencaps.us/196/4k-8-spaceodyssee/full/2001space4k-movie-screencaps.com-6377.jpg?ssl=1" alt="Slide 1">
-            <div class="gradient"></div>
-          </div>
-          <div class="carousel-slide">
-            <img src="https://i0.wp.com/img.screencaps.us/196/4-drstrangelove/full/drstrangelove-movie-screencaps.com-3358.jpg?ssl=1" alt="Slide 2">
-            <div class="gradient"></div>
-          </div>
-          <div class="carousel-slide">
-            <img src="https://i0.wp.com/img.screencaps.us/197/7-starwars4/full/star-wars4-movie-screencaps.com-2844.jpg?ssl=1" alt="Slide 3">
-            <div class="gradient"></div>
-          </div>
-        </div>
-        <button id="prevBtn">Prev</button>
-        <button id="nextBtn">Next</button>
-      </section>
+        <section class="section-form">
+            <form action="contacto">
 
-      <section class="container-section">
-        <div class="text-title">
-          <h2>Películas</h2>
-        </div>
+                <h2>Formulario de contacto</h2>
 
-        <div class="cards-container" id="movies-container"></div>
-        
-      </section>
+                <div class="container-form">
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">Nombre</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="nombre@example.com">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">Mensaje</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-btn">
+                    <button type="button" class="btn btn-outline-light ml-20">Submit</button>
+                </div>
+            </form>
+        </section>
 
     </main>
 
-    <footer>
 
+    <footer>
 
     </footer>
     
-    <script src="./scripts/tempData.js"></script>
     <script src="./scripts/index.js"></script>
   </body>
 </html>
