@@ -1,5 +1,17 @@
 const axios = require("axios");
 const renderCards = require("./RenderCards");
+const carousel = require ("./MoviesCarousel")
+
+const getFilms = require("./handler")
+
+getFilms()
+
+
+
+
+
+
+//carousel
 
 const carouselContainer = document.querySelector('.carousel-container');
 const prevBtn = document.getElementById('prevBtn');
@@ -28,6 +40,7 @@ nextBtn.addEventListener('click', nextSlide);
 prevBtn.addEventListener('click', prevSlide);
 
 setInterval(nextSlide, 12000);
+//carousel end
 
 const fetchData = async () => {
   try {
@@ -38,5 +51,7 @@ const fetchData = async () => {
     console.error("Error al obtener los datos:", error);
   }
 };
+
+
 
 fetchData();

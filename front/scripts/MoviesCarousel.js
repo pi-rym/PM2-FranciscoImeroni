@@ -1,3 +1,4 @@
+/* 
 const carouselContainer = document.querySelector('.carousel-container');
 const prevBtn = document.getElementById('prevBtn');
 const nextBtn = document.getElementById('nextBtn');
@@ -25,3 +26,6 @@ nextBtn.addEventListener('click', nextSlide);
 prevBtn.addEventListener('click', prevSlide);
 
 setInterval(nextSlide, 12000);
+
+
+module.exports = carousel */

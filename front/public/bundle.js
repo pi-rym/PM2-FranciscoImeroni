@@ -9,6 +9,16 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./scripts/MoviesCarousel.js":
+/*!***********************************!*\
+  !*** ./scripts/MoviesCarousel.js ***!
+  \***********************************/
+/***/ (() => {
+
+eval("/* \r\nconst carouselContainer = document.querySelector('.carousel-container');\r\nconst prevBtn = document.getElementById('prevBtn');\r\nconst nextBtn = document.getElementById('nextBtn');\r\nconst slides = document.querySelectorAll('.carousel-slide');\r\n\r\nlet currentIndex = 0;\r\n\r\nfunction showSlide(index) {\r\n  slides.forEach((slide, i) => {\r\n    slide.style.transform = `translateX(-${index * 100}%)`;\r\n  });\r\n}\r\n\r\nfunction nextSlide() {\r\n  currentIndex = (currentIndex + 1) % slides.length;\r\n  showSlide(currentIndex);\r\n}\r\n\r\nfunction prevSlide() {\r\n  currentIndex = (currentIndex - 1 + slides.length) % slides.length;\r\n  showSlide(currentIndex);\r\n}\r\n\r\nnextBtn.addEventListener('click', nextSlide);\r\nprevBtn.addEventListener('click', prevSlide);\r\n\r\nsetInterval(nextSlide, 12000);\r\n\r\n\r\nmodule.exports = carousel */\n\n//# sourceURL=webpack://front/./scripts/MoviesCarousel.js?");
+
+/***/ }),
+
 /***/ "./scripts/RenderCards.js":
 /*!********************************!*\
   !*** ./scripts/RenderCards.js ***!
@@ -19,13 +29,23 @@ eval("const moviesContainer = document.getElementById(\"movies-container\")\r\n\
 
 /***/ }),
 
+/***/ "./scripts/handler.js":
+/*!****************************!*\
+  !*** ./scripts/handler.js ***!
+  \****************************/
+/***/ ((module) => {
+
+eval("const getFilms = async () => {\r\n    try {\r\n        const {data} = await axios.get(\"https://students-api.up.railway.app/movies\")\r\n        console.log(data);\r\n        data.forEach(renderFilms)\r\n    } catch (error) {\r\n        console.log(error.message);\r\n    }\r\n} \r\n\r\nmodule.exports = getFilms\n\n//# sourceURL=webpack://front/./scripts/handler.js?");
+
+/***/ }),
+
 /***/ "./scripts/index.js":
 /*!**************************!*\
   !*** ./scripts/index.js ***!
   \**************************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("const axios = __webpack_require__(/*! axios */ \"./node_modules/axios/dist/browser/axios.cjs\");\r\nconst renderCards = __webpack_require__(/*! ./RenderCards */ \"./scripts/RenderCards.js\");\r\n\r\nconst carouselContainer = document.querySelector('.carousel-container');\r\nconst prevBtn = document.getElementById('prevBtn');\r\nconst nextBtn = document.getElementById('nextBtn');\r\nconst slides = document.querySelectorAll('.carousel-slide');\r\n\r\nlet currentIndex = 0;\r\n\r\nfunction showSlide(index) {\r\n  slides.forEach((slide, i) => {\r\n    slide.style.transform = `translateX(-${index * 100}%)`;\r\n  });\r\n}\r\n\r\nfunction nextSlide() {\r\n  currentIndex = (currentIndex + 1) % slides.length;\r\n  showSlide(currentIndex);\r\n}\r\n\r\nfunction prevSlide() {\r\n  currentIndex = (currentIndex - 1 + slides.length) % slides.length;\r\n  showSlide(currentIndex);\r\n}\r\n\r\nnextBtn.addEventListener('click', nextSlide);\r\nprevBtn.addEventListener('click', prevSlide);\r\n\r\nsetInterval(nextSlide, 12000);\r\n\r\nconst fetchData = async () => {\r\n  try {\r\n    const response = await axios.get(\"https://students-api.up.railway.app/movies\");\r\n    const data = response.data;\r\n    renderCards(data);\r\n  } catch (error) {\r\n    console.error(\"Error al obtener los datos:\", error);\r\n  }\r\n};\r\n\r\nfetchData();\n\n//# sourceURL=webpack://front/./scripts/index.js?");
+eval("const axios = __webpack_require__(/*! axios */ \"./node_modules/axios/dist/browser/axios.cjs\");\r\nconst renderCards = __webpack_require__(/*! ./RenderCards */ \"./scripts/RenderCards.js\");\r\nconst carousel = __webpack_require__ (/*! ./MoviesCarousel */ \"./scripts/MoviesCarousel.js\")\r\n\r\nconst getFilms = __webpack_require__(/*! ./handler */ \"./scripts/handler.js\")\r\n\r\ngetFilms()\r\n\r\n\r\n\r\n\r\n\r\n\r\n//carousel\r\n\r\nconst carouselContainer = document.querySelector('.carousel-container');\r\nconst prevBtn = document.getElementById('prevBtn');\r\nconst nextBtn = document.getElementById('nextBtn');\r\nconst slides = document.querySelectorAll('.carousel-slide');\r\n\r\nlet currentIndex = 0;\r\n\r\nfunction showSlide(index) {\r\n  slides.forEach((slide, i) => {\r\n    slide.style.transform = `translateX(-${index * 100}%)`;\r\n  });\r\n}\r\n\r\nfunction nextSlide() {\r\n  currentIndex = (currentIndex + 1) % slides.length;\r\n  showSlide(currentIndex);\r\n}\r\n\r\nfunction prevSlide() {\r\n  currentIndex = (currentIndex - 1 + slides.length) % slides.length;\r\n  showSlide(currentIndex);\r\n}\r\n\r\nnextBtn.addEventListener('click', nextSlide);\r\nprevBtn.addEventListener('click', prevSlide);\r\n\r\nsetInterval(nextSlide, 12000);\r\n//carousel end\r\n\r\nconst fetchData = async () => {\r\n  try {\r\n    const response = await axios.get(\"https://students-api.up.railway.app/movies\");\r\n    const data = response.data;\r\n    renderCards(data);\r\n  } catch (error) {\r\n    console.error(\"Error al obtener los datos:\", error);\r\n  }\r\n};\r\n\r\n\r\n\r\nfetchData();\n\n//# sourceURL=webpack://front/./scripts/index.js?");
 
 /***/ }),
 
