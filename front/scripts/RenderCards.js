@@ -10,7 +10,7 @@ const renderCards = (data) => {
       title.innerHTML = movie.title;
   
       const poster = document.createElement("img");
-      poster.classList.add("card-imaage");
+      poster.classList.add("card-image");
       poster.src = movie.poster;
   
       const year = document.createElement("p")

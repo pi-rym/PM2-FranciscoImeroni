@@ -9,43 +9,13 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./scripts/MoviesCarousel.js":
-/*!***********************************!*\
-  !*** ./scripts/MoviesCarousel.js ***!
-  \***********************************/
-/***/ (() => {
-
-eval("/* \r\nconst carouselContainer = document.querySelector('.carousel-container');\r\nconst prevBtn = document.getElementById('prevBtn');\r\nconst nextBtn = document.getElementById('nextBtn');\r\nconst slides = document.querySelectorAll('.carousel-slide');\r\n\r\nlet currentIndex = 0;\r\n\r\nfunction showSlide(index) {\r\n  slides.forEach((slide, i) => {\r\n    slide.style.transform = `translateX(-${index * 100}%)`;\r\n  });\r\n}\r\n\r\nfunction nextSlide() {\r\n  currentIndex = (currentIndex + 1) % slides.length;\r\n  showSlide(currentIndex);\r\n}\r\n\r\nfunction prevSlide() {\r\n  currentIndex = (currentIndex - 1 + slides.length) % slides.length;\r\n  showSlide(currentIndex);\r\n}\r\n\r\nnextBtn.addEventListener('click', nextSlide);\r\nprevBtn.addEventListener('click', prevSlide);\r\n\r\nsetInterval(nextSlide, 12000);\r\n\r\n\r\nmodule.exports = carousel */\n\n//# sourceURL=webpack://front/./scripts/MoviesCarousel.js?");
-
-/***/ }),
-
-/***/ "./scripts/RenderCards.js":
+/***/ "./scripts/createFilms.js":
 /*!********************************!*\
-  !*** ./scripts/RenderCards.js ***!
+  !*** ./scripts/createFilms.js ***!
   \********************************/
-/***/ ((module) => {
-
-eval("const moviesContainer = document.getElementById(\"movies-container\")\r\n\r\nconst renderCards = (data) => {\r\n    data.forEach((movie) => {\r\n      const card = document.createElement(\"div\");\r\n      card.classList.add(\"card\")\r\n  \r\n      const title= document.createElement(\"h3\");\r\n      title.classList.add(\"card-title\");\r\n      title.innerHTML = movie.title;\r\n  \r\n      const poster = document.createElement(\"img\");\r\n      poster.classList.add(\"card-imaage\");\r\n      poster.src = movie.poster;\r\n  \r\n      const year = document.createElement(\"p\")\r\n      year.classList.add(\"card-text\");\r\n      year.innerHTML = movie.year;\r\n  \r\n      card.appendChild(poster);\r\n      card.appendChild(title);\r\n      card.appendChild(year);\r\n  \r\n      moviesContainer.appendChild(card);\r\n    });\r\n  };\r\n\r\n  module.exports = renderCards\n\n//# sourceURL=webpack://front/./scripts/RenderCards.js?");
-
-/***/ }),
-
-/***/ "./scripts/handler.js":
-/*!****************************!*\
-  !*** ./scripts/handler.js ***!
-  \****************************/
-/***/ ((module) => {
-
-eval("const getFilms = async () => {\r\n    try {\r\n        const {data} = await axios.get(\"https://students-api.up.railway.app/movies\")\r\n        console.log(data);\r\n        data.forEach(renderFilms)\r\n    } catch (error) {\r\n        console.log(error.message);\r\n    }\r\n} \r\n\r\nmodule.exports = getFilms\n\n//# sourceURL=webpack://front/./scripts/handler.js?");
-
-/***/ }),
-
-/***/ "./scripts/index.js":
-/*!**************************!*\
-  !*** ./scripts/index.js ***!
-  \**************************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("const axios = __webpack_require__(/*! axios */ \"./node_modules/axios/dist/browser/axios.cjs\");\r\nconst renderCards = __webpack_require__(/*! ./RenderCards */ \"./scripts/RenderCards.js\");\r\nconst carousel = __webpack_require__ (/*! ./MoviesCarousel */ \"./scripts/MoviesCarousel.js\")\r\n\r\nconst getFilms = __webpack_require__(/*! ./handler */ \"./scripts/handler.js\")\r\n\r\ngetFilms()\r\n\r\n\r\n\r\n\r\n\r\n\r\n//carousel\r\n\r\nconst carouselContainer = document.querySelector('.carousel-container');\r\nconst prevBtn = document.getElementById('prevBtn');\r\nconst nextBtn = document.getElementById('nextBtn');\r\nconst slides = document.querySelectorAll('.carousel-slide');\r\n\r\nlet currentIndex = 0;\r\n\r\nfunction showSlide(index) {\r\n  slides.forEach((slide, i) => {\r\n    slide.style.transform = `translateX(-${index * 100}%)`;\r\n  });\r\n}\r\n\r\nfunction nextSlide() {\r\n  currentIndex = (currentIndex + 1) % slides.length;\r\n  showSlide(currentIndex);\r\n}\r\n\r\nfunction prevSlide() {\r\n  currentIndex = (currentIndex - 1 + slides.length) % slides.length;\r\n  showSlide(currentIndex);\r\n}\r\n\r\nnextBtn.addEventListener('click', nextSlide);\r\nprevBtn.addEventListener('click', prevSlide);\r\n\r\nsetInterval(nextSlide, 12000);\r\n//carousel end\r\n\r\nconst fetchData = async () => {\r\n  try {\r\n    const response = await axios.get(\"https://students-api.up.railway.app/movies\");\r\n    const data = response.data;\r\n    renderCards(data);\r\n  } catch (error) {\r\n    console.error(\"Error al obtener los datos:\", error);\r\n  }\r\n};\r\n\r\n\r\n\r\nfetchData();\n\n//# sourceURL=webpack://front/./scripts/index.js?");
+eval("const axios = __webpack_require__(/*! axios */ \"./node_modules/axios/dist/browser/axios.cjs\")\r\n\r\nconst genres = [\"action\", \"Fantasy\", \"Comedy\", \"Drama\", \"Sci-fi\", \"Terror\", \"Adventure\"]\r\n\r\nconst btnSubmit = document.getElementById('btnSubmit')\r\nconst btnCleaner = document.getElementById('btnCleaner')\r\nconst options = document.getElementById('options')\r\nconst title = document.getElementById('title');\r\nconst year = document.getElementById('year');\r\nconst director = document.getElementById('director');\r\nconst duration = document.getElementById('duration');\r\nconst genre = document.getElementById('genre');\r\nconst rate = document.getElementById('rate');\r\nconst poster = document.getElementById('poster');\r\n\r\nfunction renderGenres() {\r\n    options.innerHTML = ''\r\n\r\n    for (const genre of genres) {\r\n        const input = document.createElement(\"input\")\r\n        const label = document.createElement(\"label\")\r\n\r\n        input.type = \"checkbox\"\r\n        input.id = genre\r\n        input.name = \"genre[]\"\r\n        input.value = genre\r\n\r\n        label.htmlFor = genre\r\n        label.textContent = genre;\r\n\r\n        options.appendChild(input)\r\n        options.appendChild(label)\r\n\r\n        \r\n    }\r\n    return options;\r\n}\r\n\r\nrenderGenres()\r\n\r\nfunction validateCheckboxes(){\r\n    document.querySelectorAll('input [name=\"genre[]\"]')\r\n\r\n\r\n\r\nfor (const item of checkboxes) {\r\n    if(item.checked){\r\n        item.classList.add(\"selected\")\r\n        return true;\r\n    }\r\n}\r\n}\r\n\r\n\r\nfunction handlerSubmit(event) {\r\n    event.preventDefault()\r\n    const genres = validateCheckboxes()\r\n\r\n    if (![title.value, year.value, director.value, duration.value, rate.value, poster.value].every (Boolean)) return alert(\"Faltan llenar campos\") \r\n         return alert(\"Pelicula enviada\")\r\n    }\r\n    \r\n    function cleanInputs(){\r\n        title.value = ''\r\n        year.value = ''\r\n        director.value = ''\r\n        duration.value =''\r\n        rate.value =''\r\n        poster.value=''\r\n\r\n        const checkboxes = document.querySelectorAll('input [name=\"genre[]\"]')\r\n        for (const item of checkboxes) {\r\n            item.checked = false;\r\n            item.classList.remove('selected')\r\n        }\r\n\r\n\r\n    }\r\n\r\n    btnSubmit.addEventListener('click',handlerSubmit)\r\n    btnCleaner.addEventListener('click', cleanInputs)\n\n//# sourceURL=webpack://front/./scripts/createFilms.js?");
 
 /***/ }),
 
@@ -104,7 +74,7 @@ eval("// Axios v1.6.8 Copyright (c) 2024 Matt Zabriskie and contributors\n\n\nfu
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
-/******/ 	var __webpack_exports__ = __webpack_require__("./scripts/index.js");
+/******/ 	var __webpack_exports__ = __webpack_require__("./scripts/createFilms.js");
 /******/ 	
 /******/ })()
 ;
